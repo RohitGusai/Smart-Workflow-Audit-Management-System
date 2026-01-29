@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/UseAuth";
+import { FaBell } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
@@ -54,6 +55,16 @@ const Navbar = () => {
               Profile
             </Link>
           )}
+
+          {(isAuthenticated && user?.role === "USER" ) && (
+            <Link
+              to=""
+              className="hover:text-purple-400 transition"
+            >
+              <FaBell size={24} />
+            </Link>
+          )
+          }
         </div>
 
         {/* User Info */}
