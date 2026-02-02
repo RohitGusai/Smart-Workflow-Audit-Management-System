@@ -25,6 +25,7 @@ const LoginPage = () => {
         login({
           token: response.data.token,
           role: response.data.role,
+          id: response.data.userId,
         });
         navigate("/dashBoard");
       } else {

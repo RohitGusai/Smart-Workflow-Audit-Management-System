@@ -68,3 +68,9 @@ export const deleteUserById = async (id) =>
     const response = await api.delete(`/admin/delete/${id}`)
     return response.data;
 }
+
+export const getNotification = async () =>
+{
+    const response = await api.get(`/notification`)
+    return response.data;
+}
