@@ -17,14 +17,10 @@
     "build": "vite build",
 
     "lint": "eslint .",
-<<<<<<< HEAD
+
     "preview": "vite preview",
     "prereload":"npm run build",
     "deploy": "gh-pages -d dist"
-=======
-
-    "preview": "vite preview"
->>>>>>> e093574 (deploy frontend via github actions)
 
   },
 
