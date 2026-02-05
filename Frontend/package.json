@@ -5,13 +5,14 @@
   "version": "0.0.0",
   "type": "module",
 
-  "homepage": "https://rohitgusai.github.io/swams/",
+  "homepage": "https://rohitgusai.github.io/Smart-Workflow-Audit-Management-System/",
 
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "prereload":"npm run build",
     "deploy": "gh-pages -d dist"
 
   },
