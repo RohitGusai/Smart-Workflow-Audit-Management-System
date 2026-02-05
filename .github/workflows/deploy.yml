@@ -1,33 +1,31 @@
-name: Deploy React Frontend to GitHub Pages
+name: deploy the project
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: '18'
 
       - name: Install dependencies
-        working-directory: Frontend
         run: npm install
+        working-directory: ./Frontend
 
-      - name: Build project
-        working-directory: Frontend
+      - name: Build the project
         run: npm run build
+        working-directory: ./Frontend
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
