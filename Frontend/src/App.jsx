@@ -60,6 +60,7 @@ function App() {
 
         <Route path="/unauthorized" element={<UnauthorizedPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/" element={<LoginPage/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
