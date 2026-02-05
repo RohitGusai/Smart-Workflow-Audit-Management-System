@@ -33,7 +33,7 @@ function App() {
         </ProtectedRoute>
         }/>
 
-        <Route path="/approvals" element={<ProtectedRoute role={["MANAGER","ADMIN"]}>
+        <Route path="/approvals" element={<ProtectedRoute role={["MANAGER"]}>
         <ManagerDashboard/>
         </ProtectedRoute>
         }/> 

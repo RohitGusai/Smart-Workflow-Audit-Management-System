@@ -83,7 +83,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {(user?.role === "MANAGER" || user?.role === "ADMIN") && (
+          {(user?.role === "MANAGER") && (
             <Link to="/approvals" className="hover:text-purple-400 transition">
               Pending Approvals
             </Link>
