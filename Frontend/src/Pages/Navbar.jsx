@@ -160,7 +160,7 @@ const Navbar = () => {
             </button>
           )}
 
-          {isAuthenticated && user?.role === "ADMIN" && (
+          { !isAuthenticated && (
             <button
               onClick={handleRegister}
               className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-[1.05] transition font-semibold shadow-lg shadow-blue-500/30"

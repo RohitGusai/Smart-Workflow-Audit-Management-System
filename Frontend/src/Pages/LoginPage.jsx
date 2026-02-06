@@ -49,7 +49,7 @@ const LoginPage = () => {
         className="relative z-10 w-[90%] max-w-md p-8 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl"
       >
         <h1 className="text-3xl font-bold text-white text-center mb-6">
-          Welcome Back ✨
+          Welcome Sir ✨
         </h1>
 
         {error && (

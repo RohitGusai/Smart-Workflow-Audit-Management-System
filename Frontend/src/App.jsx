@@ -24,7 +24,7 @@ function App() {
     <>
     
     <AuthProvider>
-      <BrowserRouter basename="/Smart-Workflow-Audit-Management-System">
+      <BrowserRouter basename="/Smart-Workflow-Audit-Management-System/login">
       <Navbar/>
       <Routes>
         <Route path="/" element={<LoginPage/>}/>

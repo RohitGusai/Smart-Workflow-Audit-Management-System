@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/UseAuth";
 
 const Registration = () => {
+  const { user, isAuthenticated } = useAuth();
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [email, setemail] = useState("");
@@ -11,15 +13,24 @@ const Registration = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+//   useEffect(() => {
+//   if (!isAuthenticated) {
+//     setrole("USER"); // self-registration → USER only
+//   }
+// }, [isAuthenticated]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setmessage("");
     setIsLoading(true);
 
+    const finalRole =
+    isAuthenticated && user?.role === "ADMIN" ? role : "USER";
+
     try {
       const response = await axios.post(
         "http://localhost:3030/auth/register",
-        { email, name:username, password, role }
+        { email, name:username, password, role: finalRole }
       );
 
       setmessage(response.data.message);
@@ -89,17 +100,28 @@ const Registration = () => {
             className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-indigo-400 placeholder-white/60"
           />
 
-          <select
-           
-            value={role}
-            onChange={(e) => setrole(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-indigo-400 text-white"
-          >
-            <option value="" className="text-black">Select Role</option>
-            <option value="USER" className="text-black">User</option>
-            <option value="MANAGER" className="text-black">Manager</option>
-            <option value="ADMIN" className="text-black">Admin</option>
-          </select>
+          {/* ROLE FIELD */}
+{isAuthenticated && user?.role === "ADMIN" ? (
+  // ✅ ADMIN can choose role
+  <select
+    value={role}
+    onChange={(e) => setrole(e.target.value)}
+    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-indigo-400 text-white"
+  >
+    <option value="USER" className="text-black">User</option>
+    <option value="MANAGER" className="text-black">Manager</option>
+    <option value="ADMIN" className="text-black">Admin</option>
+  </select>
+) : (
+  // 🔒 Normal user → fixed USER role
+  <input
+    type="text"
+    value="USER"
+    disabled
+    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white opacity-60"
+  />
+)}
+
 
           <button
             disabled={isLoading}
