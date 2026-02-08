@@ -38,7 +38,7 @@ function App() {
         </ProtectedRoute>
         }/> 
 
-        <Route path="/registration" element={<ProtectedRoute role={["ADMIN"]}>
+        <Route path="/registration" element={<ProtectedRoute role={["ADMIN","USER"]}>
         <Registration/>
         </ProtectedRoute>
         }/>
