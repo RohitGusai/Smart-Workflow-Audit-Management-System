@@ -149,7 +149,7 @@ const Registration = () => {
         <p className="mt-6 text-center text-white/70 text-sm">
           Already have an account?{" "}
           <a
-            href="/login"
+            href="/Smart-Workflow-Audit-Management-System/"
             className="text-indigo-400 hover:underline font-medium"
           >
             Login here
