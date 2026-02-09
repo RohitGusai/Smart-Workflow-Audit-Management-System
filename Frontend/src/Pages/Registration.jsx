@@ -29,7 +29,7 @@ const Registration = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3030/auth/register",
+        "http://localhost:8080/auth/register",
         { email, name:username, password, role: finalRole }
       );
 
@@ -42,7 +42,7 @@ const Registration = () => {
       
 
       if (response) {
-        navigate("/login");
+        navigate("/profile");
       }
     } catch (error) {
       setmessage("Error during registration: " + error.message);

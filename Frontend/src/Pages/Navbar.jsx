@@ -61,6 +61,7 @@ const Navbar = () => {
   };
 
   const handleRegister = () => {
+    console.log("Navigating to registration page");
     navigate("/registration");
   };
 
@@ -80,6 +81,12 @@ const Navbar = () => {
           {isAuthenticated && (
             <Link to="/dashboard" className="hover:text-purple-400 transition">
               Dashboard
+            </Link>
+          )}
+
+          {isAuthenticated && user?.role === "ADMIN" && (
+            <Link to="/profile" className="hover:text-purple-400 transition">
+              Profile
             </Link>
           )}
 
@@ -160,7 +167,7 @@ const Navbar = () => {
             </button>
           )}
 
-          { !isAuthenticated && (
+          { (!isAuthenticated || user?.role === "ADMIN") && (
             <button
               onClick={handleRegister}
               className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-[1.05] transition font-semibold shadow-lg shadow-blue-500/30"
