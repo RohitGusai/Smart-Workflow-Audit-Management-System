@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3030/auth/login",
+        "http://localhost:8001/auth/login",
         { email, password }
       );
       console.log("Where are you ",response);
