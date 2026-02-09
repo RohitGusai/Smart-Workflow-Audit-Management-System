@@ -28,8 +28,9 @@ const Registration = () => {
     isAuthenticated && user?.role === "ADMIN" ? role : "USER";
 
     try {
+      const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
       const response = await axios.post(
-        "http://localhost:8080/auth/register",
+        `${BASE_URL}/auth/register`,
         { email, name:username, password, role: finalRole }
       );
 

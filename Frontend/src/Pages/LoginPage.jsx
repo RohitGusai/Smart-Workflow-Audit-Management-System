@@ -15,8 +15,9 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
+      const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL;
       const response = await axios.post(
-        "http://localhost:8001/auth/login",
+        `${BASE_URL}/auth/login`,
         { email, password }
       );
       console.log("Where are you ",response);
